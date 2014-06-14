@@ -3,10 +3,10 @@ Cinder-Scenegraph
 
 Simple classes to create a quick scenegraph.
 Somewhat based on AS3 structure.
+Experimental and fairly open ended...
 
 
 Work in Progress / Todo:
 ----
-* add block xml file
 * finish ObjectContainer class
-* add description and samples
+* add description and more samples
