@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>40237400-DF3C-4526-BE33-E9583960ADD8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BasicSample</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>94457E89-D2A3-4991-8509-FBD108BC7C66</key>
+		<string>ssh://github.com/redpaperheart/Cinder-Scenegraph.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>samples/BasicSample/xcode/BasicSample.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>94457E89-D2A3-4991-8509-FBD108BC7C66</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/redpaperheart/Cinder-Scenegraph.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>94457E89-D2A3-4991-8509-FBD108BC7C66</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>94457E89-D2A3-4991-8509-FBD108BC7C66</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Cinder-RPH-Scenegraph</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<cinder>
+<block
+	name="Scenegraph"
+	id="com.redpaperheart.scenegraph"
+    git="git@github.com:redpaperheart/Cinder-Scenegraph.git"
+	author="Red Paper Heart"
+	summary="Simple classes to create a quick scenegraph."
+    version="1.0"
+    url="https://github.com/redpaperheart/Cinder-Scenegraph"
+	>
+	<supports os="macosx" />
+    <includePath>src</includePath>
+    <header>src/rph/DisplayObject.h</header>
+    <source>src/rph/DisplayObject.cpp</source>
+    <header>src/rph/DisplayObjectContainer.h</header>
+    <header>src/rph/Object.h</header>
+    <header>src/rph/ObjectContainer.h</header>
+    <source>src/rph/ObjectContainer.cpp</source>
+</block>
+</cinder>
