@@ -46,18 +46,18 @@ namespace rph {
     
     class DisplayObject3D : public Object{
     public:
-        DisplayObject3D():mPos(ci::Vec3f::zero()),mOffset(ci::Vec3f::zero()),mScale(ci::Vec3f::one()),mColorA(ci::ColorA::white()),mRotation(ci::Vec3f::zero()){};
+        DisplayObject3D():mPos(ci::vec3(0)),mOffset(ci::vec3()),mScale(ci::vec3(1)),mColorA(ci::ColorA::white()),mRotation(ci::vec3(0)){};
         ~DisplayObject3D(){};
         
         virtual void    setup(){ };
         virtual void    update(  float deltaTime = 0.0f ){};
         virtual void    draw(){};
         
-        void            setPos(ci::Vec3f pos){ mPos = pos; }
-        ci::Vec3f       getPos(){ return mPos; }
+        void            setPos(ci::vec3 pos){ mPos = pos; }
+        ci::vec3       getPos(){ return mPos; }
         
-        void            setOffset(ci::Vec3f offset){ mOffset = offset; }
-        ci::Vec3f       getOffset(){ return mOffset; }
+        void            setOffset(ci::vec3 offset){ mOffset = offset; }
+        ci::vec3       getOffset(){ return mOffset; }
         
         void            setAlpha(float alpha){ mColorA.a = alpha; }
         float           getAlpha(){ return mColorA.a; }
@@ -66,26 +66,26 @@ namespace rph {
         void            setColorA(ci::ColorA color){ mColorA = color; }
         ci::ColorA      getColorA(){ return mColorA; }
         
-        ci::Vec3f       getScale(){ return mScale; }
+        ci::vec3       getScale(){ return mScale; }
         float           getScaleY(){ return mScale.y; }
         float           getScaleX(){ return mScale.x; }
         float           getScaleZ(){ return mScale.z; }
-        void            setScale(float scale){ mScale = ci::Vec3f(scale, scale, scale); }
-        void            setScale(ci::Vec3f scale){ mScale = scale; }
+        void            setScale(float scale){ mScale = ci::vec3(scale, scale, scale); }
+        void            setScale(ci::vec3 scale){ mScale = scale; }
         void            setScaleY(float scaleY){ mScale.y = scaleY; }
         void            setScaleX(float scaleX){ mScale.x = scaleX; }
         void            setScaleZ(float scaleZ){ mScale.z = scaleZ; }
         
-        void            setRotation(ci::Vec3f rotation){ mRotation = rotation; }
-        ci::Vec3f       getRotation(){ return mRotation; }
+        void            setRotation(ci::vec3 rotation){ mRotation = rotation; }
+        ci::vec3       getRotation(){ return mRotation; }
         
         std::string     name;
         
     protected:
-        ci::Vec3f       mScale;
-        ci::Vec3f       mPos;
-        ci::Vec3f       mOffset;
-        ci::Vec3f       mRotation;
+        ci::vec3       mScale;
+        ci::vec3       mPos;
+        ci::vec3       mOffset;
+        ci::vec3       mRotation;
         
     private:
         ci::ColorA      mColorA;
@@ -95,7 +95,7 @@ namespace rph {
     
     class DisplayObject2D : public Object{
       public:
-        DisplayObject2D():mPos(ci::Vec2f::zero()),mOffset(ci::Vec2f::zero()),mScale(ci::Vec2f::one()),mColorA(ci::ColorA::white()),mWidth(0.0f),mHeight(0.0f),mRotation(0.0f),bDebug(false),mDebugColor(ci::ColorA(0,1,0,1)){};
+        DisplayObject2D():mPos(ci::vec2(0)),mOffset(ci::vec2(0)),mScale(ci::vec2(1)),mColorA(ci::ColorA::white()),mWidth(0.0f),mHeight(0.0f),mRotation(0.0f),bDebug(false),mDebugColor(ci::ColorA(0,1,0,1)){};
         ~DisplayObject2D(){};
         
         enum RegistrationPoint{
@@ -114,19 +114,19 @@ namespace rph {
         virtual void update( float deltaTime = 0.0f ){};
         virtual void draw(){};
         
-        ci::Vec2f   getRegPointVec2f(ci::Rectf rect, RegistrationPoint regPoint);
-        ci::Vec2f   getRegPointVec2f();
+        ci::vec2   getRegPointVec2f(ci::Rectf rect, RegistrationPoint regPoint);
+        ci::vec2   getRegPointVec2f();
         void        setRegPoint(RegistrationPoint p){ mRegPoint = p; }
         RegistrationPoint getRegPoint(){ return mRegPoint; }
         static RegistrationPoint getRegPoint( std::string regPoint );
         
         
-        void        setPos(float width, float height){ mPos = ci::Vec2f(width, height); }
-        void        setPos(ci::Vec2f pos){ mPos = pos; }
-        ci::Vec2f   getPos(){ return mPos; }
+        void        setPos(float width, float height){ mPos = ci::vec2(width, height); }
+        void        setPos(ci::vec2 pos){ mPos = pos; }
+        ci::vec2   getPos(){ return mPos; }
         
-        void        setOffset(ci::Vec2f offset){ mOffset = offset; }
-        ci::Vec2f   getOffset(){ return mOffset; }
+        void        setOffset(ci::vec2 offset){ mOffset = offset; }
+        ci::vec2   getOffset(){ return mOffset; }
         
         void        setHeight(float height){ mHeight = height; }
         float       getHeight(){ return mHeight; }
@@ -134,17 +134,17 @@ namespace rph {
         void        setWidth(float width){ mWidth = width; }
         float       getWidth(){ return mWidth; }
         
-        ci::Vec2f   getSize(){ return ci::Vec2f(mWidth, mHeight); }
-        void        setSize(ci::Vec2f size){ mWidth = size.x; mHeight = size.y; }
+        ci::vec2   getSize(){ return ci::vec2(mWidth, mHeight); }
+        void        setSize(ci::vec2 size){ mWidth = size.x; mHeight = size.y; }
         void        setSize(float x, float y){ mWidth = x; mHeight = y; }
         
         ci::Rectf   getRect(){ return ci::Rectf(getUpperLeft(),getLowerRight());}
         ci::Area    getInteriorArea(){ return getRect().getInteriorArea(); }
         
-        ci::Vec2f   getUpperLeft(){ return mPos; }
-        ci::Vec2f   getLowerLeft(){ return mPos()+ci::Vec2f(0,mHeight) ; }
-        ci::Vec2f   getUpperRight(){ return mPos()+ci::Vec2f(mWidth,0) ; }
-        ci::Vec2f   getLowerRight(){ return mPos()+ci::Vec2f(mWidth,mHeight); }
+        ci::vec2   getUpperLeft(){ return mPos; }
+        ci::vec2   getLowerLeft(){ return mPos()+ci::vec2(0,mHeight) ; }
+        ci::vec2   getUpperRight(){ return mPos()+ci::vec2(mWidth,0) ; }
+        ci::vec2   getLowerRight(){ return mPos()+ci::vec2(mWidth,mHeight); }
         
         void        setAlpha(float alpha){ mColorA().a = alpha; }
         float       getAlpha(){ return mColorA().a; }
@@ -156,11 +156,11 @@ namespace rph {
         void        setRotation(float rotation){ mRotation = rotation; }
         float       getRotation(){ return mRotation; }
         
-        ci::Vec2f   getScale(){ return mScale; }
+        ci::vec2   getScale(){ return mScale; }
         float       getScaleY(){ return mScale().y; }
         float       getScaleX(){ return mScale().x; }
-        void        setScale(float scale){ mScale = ci::Vec2f(scale, scale); }
-        void        setScale(ci::Vec2f scale){ mScale = scale; }
+        void        setScale(float scale){ mScale = ci::vec2(scale, scale); }
+        void        setScale(ci::vec2 scale){ mScale = scale; }
         void        setScaleY(float scaleY){ mScale().y = scaleY; }
         void        setScaleX(float scaleX){ mScale().x = scaleX; }
         
@@ -169,13 +169,13 @@ namespace rph {
         bool        bDebug;
         ci::ColorA  mDebugColor;
       
-        ci::Anim<ci::Vec2f>   mPos;
-        ci::Anim<ci::Vec2f>   mOffset;
+        ci::Anim<ci::vec2>   mPos;
+        ci::Anim<ci::vec2>   mOffset;
         ci::Anim<float>       mHeight;
         ci::Anim<float>       mWidth;
         
         ci::Anim<float>       mRotation;
-        ci::Anim<ci::Vec2f>   mScale;
+        ci::Anim<ci::vec2>   mScale;
         ci::Anim<ci::ColorA>  mColorA;
         RegistrationPoint     mRegPoint;
       protected:

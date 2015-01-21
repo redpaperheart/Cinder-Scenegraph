@@ -36,7 +36,7 @@
 
 #pragma once
 
-#include "cinder/app/AppNative.h"
+//#include "cinder/app/AppNative.h"
 
 namespace rph {
 

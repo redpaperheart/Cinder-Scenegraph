@@ -37,32 +37,32 @@
 #include "rph/DisplayObject.h"
 
 namespace rph{
-    ci::Vec2f DisplayObject2D::DisplayObject2D::getRegPointVec2f(){
+    ci::vec2 DisplayObject2D::DisplayObject2D::getRegPointVec2f(){
         return getRegPointVec2f( getRect(), getRegPoint() );
     }
     
-    ci::Vec2f DisplayObject2D::getRegPointVec2f(ci::Rectf rect, RegistrationPoint regPoint){
+    ci::vec2 DisplayObject2D::getRegPointVec2f(ci::Rectf rect, RegistrationPoint regPoint){
         switch(regPoint){
             case TOPLEFT:
-                return ci::Vec2f::zero();
+                return ci::vec2(0);
             case TOPCENTER:
-                return ci::Vec2f(-rect.getWidth()/2, 0);
+                return ci::vec2(-rect.getWidth()/2, 0);
             case TOPRIGHT:
-                return ci::Vec2f(-rect.getWidth(), 0);
+                return ci::vec2(-rect.getWidth(), 0);
             case CENTERLEFT:
-                return ci::Vec2f(0, -rect.getHeight()/2);
+                return ci::vec2(0, -rect.getHeight()/2);
             case CENTERCENTER:
-                return ci::Vec2f(-rect.getWidth()/2, -rect.getHeight()/2);
+                return ci::vec2(-rect.getWidth()/2, -rect.getHeight()/2);
             case CENTERRIGHT:
-                return ci::Vec2f(-rect.getWidth(), -rect.getHeight()/2);
+                return ci::vec2(-rect.getWidth(), -rect.getHeight()/2);
             case BOTTOMLEFT:
-                return ci::Vec2f(0, rect.getHeight());
+                return ci::vec2(0, rect.getHeight());
             case BOTTOMCENTER:
-                return ci::Vec2f(-rect.getWidth()/2, -rect.getHeight());
+                return ci::vec2(-rect.getWidth()/2, -rect.getHeight());
             case BOTTOMRIGHT:
-                return ci::Vec2f(-rect.getWidth(), -rect.getHeight());
+                return ci::vec2(-rect.getWidth(), -rect.getHeight());
         }
-        return ci::Vec2f::zero();
+        return ci::vec2(0);
     }
     
     DisplayObject2D::RegistrationPoint DisplayObject2D::getRegPoint( std::string regPoint ){
