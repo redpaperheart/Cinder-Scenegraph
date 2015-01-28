@@ -36,7 +36,7 @@
 
 #pragma once
 
-#include "cinder/App/AppNative.h"
+#include "cinder/App/App.h"
 #include "cinder/CinderMath.h"
 #include "cinder/Utilities.h"
 #include "cinder/Timeline.h"
@@ -49,15 +49,15 @@ namespace rph {
         DisplayObject3D():mPos(ci::vec3(0)),mOffset(ci::vec3()),mScale(ci::vec3(1)),mColorA(ci::ColorA::white()),mRotation(ci::vec3(0)){};
         ~DisplayObject3D(){};
         
-        virtual void    setup(){ };
+        virtual void    setup(){};
         virtual void    update(  float deltaTime = 0.0f ){};
         virtual void    draw(){};
         
         void            setPos(ci::vec3 pos){ mPos = pos; }
-        ci::vec3       getPos(){ return mPos; }
+        ci::vec3        getPos(){ return mPos; }
         
         void            setOffset(ci::vec3 offset){ mOffset = offset; }
-        ci::vec3       getOffset(){ return mOffset; }
+        ci::vec3        getOffset(){ return mOffset; }
         
         void            setAlpha(float alpha){ mColorA.a = alpha; }
         float           getAlpha(){ return mColorA.a; }
@@ -66,7 +66,7 @@ namespace rph {
         void            setColorA(ci::ColorA color){ mColorA = color; }
         ci::ColorA      getColorA(){ return mColorA; }
         
-        ci::vec3       getScale(){ return mScale; }
+        ci::vec3        getScale(){ return mScale; }
         float           getScaleY(){ return mScale.y; }
         float           getScaleX(){ return mScale.x; }
         float           getScaleZ(){ return mScale.z; }
@@ -114,8 +114,8 @@ namespace rph {
         virtual void update( float deltaTime = 0.0f ){};
         virtual void draw(){};
         
-        ci::vec2   getRegPointVec2f(ci::Rectf rect, RegistrationPoint regPoint);
-        ci::vec2   getRegPointVec2f();
+        ci::vec2   getRegPointVec2(ci::Rectf rect, RegistrationPoint regPoint);
+        ci::vec2   getRegPointVec2();
         void        setRegPoint(RegistrationPoint p){ mRegPoint = p; }
         RegistrationPoint getRegPoint(){ return mRegPoint; }
         static RegistrationPoint getRegPoint( std::string regPoint );

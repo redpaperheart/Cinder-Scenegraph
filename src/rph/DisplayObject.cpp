@@ -37,11 +37,11 @@
 #include "rph/DisplayObject.h"
 
 namespace rph{
-    ci::vec2 DisplayObject2D::DisplayObject2D::getRegPointVec2f(){
-        return getRegPointVec2f( getRect(), getRegPoint() );
+    ci::vec2 DisplayObject2D::DisplayObject2D::getRegPointVec2(){
+        return getRegPointVec2( getRect(), getRegPoint() );
     }
     
-    ci::vec2 DisplayObject2D::getRegPointVec2f(ci::Rectf rect, RegistrationPoint regPoint){
+    ci::vec2 DisplayObject2D::getRegPointVec2(ci::Rectf rect, RegistrationPoint regPoint){
         switch(regPoint){
             case TOPLEFT:
                 return ci::vec2(0);
