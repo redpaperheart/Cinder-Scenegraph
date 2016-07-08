@@ -35,6 +35,7 @@
  */
 
 #pragma once
+#include <vector>
 #include "rph/Object.h"
 
 namespace rph {
@@ -48,7 +49,7 @@ public:
     virtual void update( float deltaTime = 0.0f, int beginIndex = 0, int endIndex = 0x7fffffff);
     virtual void draw(int beginIndex = 0, int endIndex = 0x7fffffff);
     
-    void    addChild(Object *obj){ if(obj != NULL)mChildren.push_back(obj); }
+    void    addChild(Object *obj){ if(obj != NULL) mChildren.push_back(obj); }
     void    addChild( Object *obj, int index){ if(obj != NULL) mChildren.insert( mChildren.begin()+index, obj ); };
     
     int getNumChildren(){ return mChildren.size(); }
