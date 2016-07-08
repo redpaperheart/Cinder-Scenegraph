@@ -164,20 +164,20 @@ namespace rph {
         void        setScaleY(float scaleY){ mScale().y = scaleY; }
         void        setScaleX(float scaleX){ mScale().x = scaleX; }
         
-        std::string name;
+        std::string             name;
         
-        bool        bDebug;
-        ci::ColorA  mDebugColor;
+        bool                    bDebug;
+        ci::ColorA              mDebugColor;
       
-        ci::Anim<ci::vec2>   mPos;
-        ci::Anim<ci::vec2>   mOffset;
-        ci::Anim<float>       mHeight;
-        ci::Anim<float>       mWidth;
+        ci::Anim<ci::vec2>      mPos;
+        ci::Anim<ci::vec2>      mOffset;
+        ci::Anim<float>         mHeight;
+        ci::Anim<float>         mWidth;
         
-        ci::Anim<float>       mRotation;
-        ci::Anim<ci::vec2>   mScale;
-        ci::Anim<ci::ColorA>  mColorA;
-        RegistrationPoint     mRegPoint;
+        ci::Anim<float>         mRotation;
+        ci::Anim<ci::vec2>      mScale;
+        ci::Anim<ci::ColorA>    mColorA;
+        RegistrationPoint       mRegPoint;
       protected:
       private:
         
