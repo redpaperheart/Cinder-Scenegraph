@@ -56,7 +56,7 @@ namespace rph{
             case CENTERRIGHT:
                 return ci::vec2(-rect.getWidth(), -rect.getHeight()/2);
             case BOTTOMLEFT:
-                return ci::vec2(0, rect.getHeight());
+                return ci::vec2(0, -rect.getHeight());
             case BOTTOMCENTER:
                 return ci::vec2(-rect.getWidth()/2, -rect.getHeight());
             case BOTTOMRIGHT:
