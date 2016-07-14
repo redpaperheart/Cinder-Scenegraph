@@ -115,6 +115,7 @@ namespace rph {
         virtual void draw(){};
         
         ci::vec2   getRegPointVec2(ci::Rectf rect, RegistrationPoint regPoint);
+        ci::vec2   getRegPointVec2(ci::vec2 size, RegistrationPoint regPoint);
         ci::vec2   getRegPointVec2();
         void        setRegPoint(RegistrationPoint p){ mRegPoint = p; }
         RegistrationPoint getRegPoint(){ return mRegPoint; }

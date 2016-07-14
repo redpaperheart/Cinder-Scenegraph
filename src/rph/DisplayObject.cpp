@@ -65,6 +65,30 @@ namespace rph{
         return ci::vec2(0);
     }
     
+    ci::vec2 DisplayObject2D::getRegPointVec2(ci::vec2 size, RegistrationPoint regPoint){
+        switch(regPoint){
+            case TOPLEFT:
+                return ci::vec2(0);
+            case TOPCENTER:
+                return ci::vec2(-size.x/2, 0);
+            case TOPRIGHT:
+                return ci::vec2(-size.x, 0);
+            case CENTERLEFT:
+                return ci::vec2(0, -size.y/2);
+            case CENTERCENTER:
+                return ci::vec2(-size.x/2, -size.y/2);
+            case CENTERRIGHT:
+                return ci::vec2(-size.x, -size.y/2);
+            case BOTTOMLEFT:
+                return ci::vec2(0, -size.y);
+            case BOTTOMCENTER:
+                return ci::vec2(-size.x/2, -size.y);
+            case BOTTOMRIGHT:
+                return ci::vec2(-size.x, -size.y);
+        }
+        return ci::vec2(0);
+    }
+    
     DisplayObject2D::RegistrationPoint DisplayObject2D::getRegPoint( std::string regPoint ){
         if( regPoint == "TOPLEFT"){
             return TOPLEFT;
