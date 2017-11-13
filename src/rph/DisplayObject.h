@@ -50,7 +50,7 @@ namespace rph {
         ~DisplayObject3D(){};
         
         virtual void    setup(){};
-        virtual void    update(  float deltaTime = 0.0f ){};
+        virtual void    update( float deltaTime = 0.0f ){};
         virtual void    draw(){};
         
         void            setPos(ci::vec3 pos){ mPos = pos; }
