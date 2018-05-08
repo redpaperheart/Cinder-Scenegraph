@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <cinder>
 <block
-	name="Scenegraph"
+	name="Cinder-Scenegraph"
 	id="com.redpaperheart.scenegraph"
-    git="git@github.com:redpaperheart/Cinder-Scenegraph.git"
+  git="git@github.com:redpaperheart/Cinder-Scenegraph.git"
 	author="Red Paper Heart"
 	summary="Simple classes to create a quick scenegraph."
-    version="1.0"
-    url="https://github.com/redpaperheart/Cinder-Scenegraph"
+  version="1.0"
+  url="https://github.com/redpaperheart/Cinder-Scenegraph"
+	git="https://github.com/redpaperheart/Cinder-Scenegraph.git"
 	>
 	<supports os="macosx" />
     <includePath>src</includePath>
