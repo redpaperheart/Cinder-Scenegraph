@@ -77,15 +77,15 @@ namespace rph {
         void            setScaleZ(float scaleZ){ mScale.z = scaleZ; }
         
         void            setRotation(ci::vec3 rotation){ mRotation = rotation; }
-        ci::vec3       getRotation(){ return mRotation; }
-        
-        std::string     name;
+        ci::vec3		getRotation(){ return mRotation; }
+		
+        std::string		mName;
         
     protected:
-        ci::vec3       mScale;
-        ci::vec3       mPos;
-        ci::vec3       mOffset;
-        ci::vec3       mRotation;
+        ci::vec3       	mScale;
+        ci::vec3       	mPos;
+        ci::vec3       	mOffset;
+        ci::vec3       	mRotation;
         
     private:
         ci::ColorA      mColorA;
@@ -122,12 +122,12 @@ namespace rph {
         static RegistrationPoint getRegPoint( std::string regPoint );
         
         
-        void        setPos(float width, float height){ mPos = ci::vec2(width, height); }
-        void        setPos(ci::vec2 pos){ mPos = pos; }
-        ci::vec2   getPos(){ return mPos; }
+        void		setPos(float width, float height){ mPos = ci::vec2(width, height); }
+        void		setPos(ci::vec2 pos){ mPos = pos; }
+        ci::vec2	getPos(){ return mPos; }
         
         void        setOffset(ci::vec2 offset){ mOffset = offset; }
-        ci::vec2   getOffset(){ return mOffset; }
+        ci::vec2	getOffset(){ return mOffset; }
         
         void        setHeight(float height){ mHeight = height; }
         float       getHeight(){ return mHeight; }
@@ -135,17 +135,17 @@ namespace rph {
         void        setWidth(float width){ mWidth = width; }
         float       getWidth(){ return mWidth; }
         
-        ci::vec2   getSize(){ return ci::vec2(mWidth, mHeight); }
+        ci::vec2	getSize(){ return ci::vec2(mWidth, mHeight); }
         void        setSize(ci::vec2 size){ mWidth = size.x; mHeight = size.y; }
         void        setSize(float x, float y){ mWidth = x; mHeight = y; }
         
         ci::Rectf   getRect(){ return ci::Rectf(getUpperLeft(),getLowerRight());}
         ci::Area    getInteriorArea(){ return getRect().getInteriorArea(); }
         
-        ci::vec2   getUpperLeft(){ return mPos; }
-        ci::vec2   getLowerLeft(){ return mPos()+ci::vec2(0,mHeight) ; }
-        ci::vec2   getUpperRight(){ return mPos()+ci::vec2(mWidth,0) ; }
-        ci::vec2   getLowerRight(){ return mPos()+ci::vec2(mWidth,mHeight); }
+        ci::vec2	getUpperLeft(){ return mPos; }
+        ci::vec2	getLowerLeft(){ return mPos()+ci::vec2(0,mHeight) ; }
+        ci::vec2	getUpperRight(){ return mPos()+ci::vec2(mWidth,0) ; }
+        ci::vec2	getLowerRight(){ return mPos()+ci::vec2(mWidth,mHeight); }
         
         void        setAlpha(float alpha){ mColorA().a = alpha; }
         float       getAlpha(){ return mColorA().a; }
@@ -157,7 +157,7 @@ namespace rph {
         void        setRotation(float rotation){ mRotation = rotation; }
         float       getRotation(){ return mRotation; }
         
-        ci::vec2   getScale(){ return mScale; }
+        ci::vec2	getScale(){ return mScale; }
         float       getScaleY(){ return mScale().y; }
         float       getScaleX(){ return mScale().x; }
         void        setScale(float scale){ mScale = ci::vec2(scale, scale); }
@@ -165,7 +165,7 @@ namespace rph {
         void        setScaleY(float scaleY){ mScale().y = scaleY; }
         void        setScaleX(float scaleX){ mScale().x = scaleX; }
         
-        std::string             name;
+        std::string             mName;
         
         bool                    bDebug;
         ci::ColorA              mDebugColor;
