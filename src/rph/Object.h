@@ -42,7 +42,7 @@ namespace rph {
 	class Object {
 	  public:
 		Object():mIsDead(false){};
-		~Object(){};
+		virtual ~Object(){};
 		
 		virtual void update( float deltaTime = 0.0f){};
 		virtual void draw(){};
