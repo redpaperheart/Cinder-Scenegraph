@@ -43,6 +43,7 @@ void Square::setup()
 
 void Square::fadeOutAndDie(){
     ci::app::timeline().apply(&mPos, mPos()+ci::vec2(0,100), 1 );
+	ci::app::timeline().apply(&mColorA, ci::ColorA(mColorA().r, mColorA().g, mColorA().b, 0.5), 1.0f).finishFn([&]() { die(); });
     //ci::app::timeline().apply(&mColorA, ci::ColorA(mColorA().r, mColorA().g, mColorA().b, 0.5), 1 ).finishFn(boost::bind(&Square::die, this));
 }
 
@@ -52,6 +53,11 @@ void Square::update()
 }
 void Square::draw()
 {
+	gl::ScopedMatrices mat;
+	gl::ScopedColor c(mColorA);
+	gl::translate(getRegPointVec2());
+	ci::gl::drawSolidRect(getRect());
+	//gl::drawSolidCircle(getPos(), getWidth()*getScaleX());
     /*ci::gl::pushMatrices();
     ci::gl::color(mColorA);
     ci::gl::translate(getRegPointVec2f());

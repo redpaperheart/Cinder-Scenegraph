@@ -37,6 +37,11 @@
 #pragma once
 
 #include "rph/DisplayObject.h"
+#include "cinder/Timeline.h"
+#include "cinder/gl/gl.h"
+
+using namespace ci;
+using namespace ci::app;
 
 class Square : public rph::DisplayObject2D{
 public:
