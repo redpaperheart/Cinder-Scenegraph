@@ -39,10 +39,13 @@
 #include "rph/ObjectContainer.h"
 
 namespace rph {
-
+	using DisplayObjectContainerRef = std::shared_ptr<class DisplayObjectContainer>;
     class DisplayObjectContainer : public DisplayObject2D, public ObjectContainer {
   
       public:
+		static DisplayObjectContainerRef create() {
+			return std::make_shared<DisplayObjectContainer>();
+		}
         DisplayObjectContainer(){};
         ~DisplayObjectContainer(){};
         virtual void update(float deltaTime = 0.0f, int beginIndex = 0, int endIndex = 0x7fffffff){ObjectContainer::update(deltaTime, beginIndex, endIndex);}

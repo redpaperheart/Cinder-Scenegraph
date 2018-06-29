@@ -39,20 +39,27 @@
 #include "rph/DisplayObject.h"
 #include "cinder/Timeline.h"
 #include "cinder/gl/gl.h"
+#include "cinder/Log.h"
 
 using namespace ci;
 using namespace ci::app;
-
+using SquareRef = std::shared_ptr<class Square>;
 class Square : public rph::DisplayObject2D{
 public:
+	static SquareRef create() {
+		return std::make_shared<Square>();
+	}
     Square(){};
-    ~Square(){};
+    ~Square(){
+		//CI_LOG_I("Square:: good bye cruel world");
+	};
     
     virtual void    setup();
     virtual void    update();
     virtual void    draw();
     
     void fadeOutAndDie();
+	gl::BatchRef	mBatchRect;
 };
     
 

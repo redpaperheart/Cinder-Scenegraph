@@ -38,13 +38,14 @@
 
 void Square::setup()
 {
-    
+	auto lambert = gl::ShaderDef().lambert().color();
+	gl::GlslProgRef shader = gl::getStockShader(lambert);
+	mBatchRect = gl::Batch::create(geom::Rect(Rectf(0, 0, 1, 1)), shader);
 }
 
 void Square::fadeOutAndDie(){
-    ci::app::timeline().apply(&mPos, mPos()+ci::vec2(0,100), 1 );
-	ci::app::timeline().apply(&mColorA, ci::ColorA(mColorA().r, mColorA().g, mColorA().b, 0.5), 1.0f).finishFn([&]() { die(); });
-    //ci::app::timeline().apply(&mColorA, ci::ColorA(mColorA().r, mColorA().g, mColorA().b, 0.5), 1 ).finishFn(boost::bind(&Square::die, this));
+    ci::app::timeline().apply(&mPos, mPos()+ci::vec2(0,100), 10 );
+	ci::app::timeline().apply(&mColorA, ci::ColorA(mColorA().r, mColorA().g, mColorA().b, 0.5), 10.0f).finishFn([&]() { die(); });
 }
 
 void Square::update()
@@ -56,11 +57,7 @@ void Square::draw()
 	gl::ScopedMatrices mat;
 	gl::ScopedColor c(mColorA);
 	gl::translate(getRegPointVec2());
-	ci::gl::drawSolidRect(getRect());
-	//gl::drawSolidCircle(getPos(), getWidth()*getScaleX());
-    /*ci::gl::pushMatrices();
-    ci::gl::color(mColorA);
-    ci::gl::translate(getRegPointVec2f());
-    ci::gl::drawSolidRect(getRect());
-    ci::gl::popMatrices();*/
+	gl::translate(getPos());
+	gl::scale(vec2(getWidth(), getHeight()));
+	mBatchRect->draw();
 }

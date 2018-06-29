@@ -38,20 +38,28 @@
 #include "rph/DisplayObject.h"
 #include "cinder/Timeline.h"
 #include "cinder/gl/gl.h"
+#include "cinder/Log.h"
 
 using namespace ci;
 using namespace ci::app;
-
+using CircleRef = std::shared_ptr<class Circle>;
 class Circle : public rph::DisplayObject2D{
 public:
+	static CircleRef create() {
+		return std::make_shared<Circle>();
+	}
     Circle(){
         setSize(1,1);
     };
-    ~Circle(){};
+    ~Circle(){
+		//CI_LOG_I("Circle:: good bye cruel world");
+	};
     
     virtual void    setup();
     virtual void    update();
     virtual void    draw();
     
     void fadeOutAndDie();
+	gl::BatchRef	mBatchCircle;
+
 };

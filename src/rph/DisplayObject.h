@@ -43,9 +43,13 @@
 #include "rph/Object.h"
 
 namespace rph {
-    
+	using DisplayObject3DRef = std::shared_ptr<class DisplayObject3D>;
     class DisplayObject3D : public Object{
     public:
+		static DisplayObject3DRef create() {
+			return std::make_shared<DisplayObject3D>();
+		}
+
         DisplayObject3D():mPos(ci::vec3(0)),mOffset(ci::vec3()),mScale(ci::vec3(1)),mColorA(ci::ColorA::white()),mRotation(ci::vec3(0)){};
         ~DisplayObject3D(){};
         
@@ -92,9 +96,12 @@ namespace rph {
         
     };
     
-    
+	using DisplayObject2DRef = std::shared_ptr<class DisplayObject2D>;
     class DisplayObject2D : public Object{
       public:
+		static DisplayObject2DRef create() {
+			return std::make_shared<DisplayObject2D>();
+		}
         DisplayObject2D():mPos(ci::vec2(0)),mOffset(ci::vec2(0)),mScale(ci::vec2(1)),mColorA(ci::ColorA::white()),mWidth(0.0f),mHeight(0.0f),mRotation(0.0f),bDebug(false),mDebugColor(ci::ColorA(0,1,0,1)){};
         ~DisplayObject2D(){};
         

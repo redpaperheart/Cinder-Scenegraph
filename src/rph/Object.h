@@ -39,8 +39,14 @@
 #include <string>
 
 namespace rph {
+	using ObjectRef = std::shared_ptr<class Object>;
+
 	class Object {
 	  public:
+		static ObjectRef create() {
+			return std::make_shared<Object>();
+		}
+
 		Object():mIsDead(false){};
 		virtual ~Object(){};
 		

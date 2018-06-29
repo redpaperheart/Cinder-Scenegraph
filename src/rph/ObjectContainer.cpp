@@ -37,7 +37,7 @@
 #include "rph/ObjectContainer.h"
 namespace rph {
     
-    Object* ObjectContainer::removeChildAt(int index){
+	ObjectRef ObjectContainer::removeChildAt(int index){
         return *mChildren.erase( mChildren.begin()+index );
     }
     
@@ -46,7 +46,7 @@ namespace rph {
     };
     
     void ObjectContainer::update( float deltaTime, int beginIndex, int endIndex ){
-        for( std::vector<Object *>::iterator it = mChildren.begin(); it != mChildren.end();){
+        for( std::vector<ObjectRef>::iterator it = mChildren.begin(); it != mChildren.end();){
             if( (*it)->isDead() ){
                 it = mChildren.erase(it);
             } else {
@@ -57,7 +57,7 @@ namespace rph {
     }
 
     void ObjectContainer::draw(int beginIndex, int endIndex){
-        for( std::vector<Object *>::iterator it = mChildren.begin(); it != mChildren.end(); it++){
+        for( std::vector<ObjectRef>::iterator it = mChildren.begin(); it != mChildren.end(); it++){
             (*it)->draw();
         }
     }
