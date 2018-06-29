@@ -42,8 +42,8 @@ void Square::setup()
 }
 
 void Square::fadeOutAndDie(){
-    ci::app::timeline().apply(&mPos, mPos()+ci::Vec2f(0,100), 1 );
-    ci::app::timeline().apply(&mColorA, ci::ColorA(mColorA().r, mColorA().g, mColorA().b, 0.5), 1 ).finishFn(boost::bind(&Square::die, this));
+    ci::app::timeline().apply(&mPos, mPos()+ci::vec2(0,100), 1 );
+    //ci::app::timeline().apply(&mColorA, ci::ColorA(mColorA().r, mColorA().g, mColorA().b, 0.5), 1 ).finishFn(boost::bind(&Square::die, this));
 }
 
 void Square::update()
@@ -52,9 +52,9 @@ void Square::update()
 }
 void Square::draw()
 {
-    ci::gl::pushMatrices();
+    /*ci::gl::pushMatrices();
     ci::gl::color(mColorA);
     ci::gl::translate(getRegPointVec2f());
     ci::gl::drawSolidRect(getRect());
-    ci::gl::popMatrices();
+    ci::gl::popMatrices();*/
 }

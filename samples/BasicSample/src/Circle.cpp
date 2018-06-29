@@ -44,8 +44,8 @@ void Circle::setup()
 }
 
 void Circle::fadeOutAndDie(){
-    ci::app::timeline().apply(&mPos, mPos()+ci::Vec2f(0,100), 1 );
-    ci::app::timeline().apply(&mColorA, ci::ColorA(mColorA().r, mColorA().g, mColorA().b, 0.5), 1 ).finishFn(boost::bind(&Circle::die, this));
+    ci::app::timeline().apply(&mPos, mPos()+ci::vec2(0,100), 1 );
+    //ci::app::timeline().apply(&mColorA, ci::ColorA(mColorA().r, mColorA().g, mColorA().b, 0.5), 1 ).finishFn(boost::bind(&Circle::die, this));
 }
 
 void Circle::update()
@@ -54,9 +54,9 @@ void Circle::update()
 }
 void Circle::draw()
 {
-    ci::gl::pushMatrices();
-    ci::gl::color(mColorA);
-    //ci::gl::translate(getRegPointVec2f()*getScale());
-    ci::gl::drawSolidCircle(getPos(), getWidth()*getScaleX());
-    ci::gl::popMatrices();
+    //ci::gl::pushMatrices();
+    //ci::gl::color(mColorA);
+    ////ci::gl::translate(getRegPointVec2f()*getScale());
+    //ci::gl::drawSolidCircle(getPos(), getWidth()*getScaleX());
+    //ci::gl::popMatrices();
 }
