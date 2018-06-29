@@ -1,0 +1,79 @@
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Blocks">
+      <UniqueIdentifier>{326d7bb0-1d78-41b2-9af8-b032da6cfc81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Cinder-Scenegraph">
+      <UniqueIdentifier>{c878797f-e427-4afe-9fa7-d5a663b92916}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Cinder-Scenegraph\src">
+      <UniqueIdentifier>{87e237ab-4cc5-4bde-951f-5cc52c4c0620}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Cinder-Scenegraph\src\rph">
+      <UniqueIdentifier>{381335bf-1b6d-473e-8b05-f832e827f0f2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\BasicSampleApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClInclude Include="..\include\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\..\src\rph\DisplayObject.cpp">
+      <Filter>Blocks\Cinder-Scenegraph\src\rph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\rph\ObjectContainer.cpp">
+      <Filter>Blocks\Cinder-Scenegraph\src\rph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\BasicSampleApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Circle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Square.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\rph\DisplayObject.h">
+      <Filter>Blocks\Cinder-Scenegraph\src\rph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\rph\DisplayObjectContainer.h">
+      <Filter>Blocks\Cinder-Scenegraph\src\rph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\rph\Object.h">
+      <Filter>Blocks\Cinder-Scenegraph\src\rph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\rph\ObjectContainer.h">
+      <Filter>Blocks\Cinder-Scenegraph\src\rph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Circle.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Square.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resources.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
