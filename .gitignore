@@ -26,15 +26,21 @@ DerivedData/
 xcuserdata
 *.xcworkspace
 
-#Visual Studio
-*.sdf
-*.opensdf
+# Windows cruft
 *.suo
-*.pdb
-*.ilk
-*.aps
-*.tlog
+*.ncb
+*.sdf
+*.VC.opendb
+*.VC.db
+*.opensdf
+Debug/
+Release/
+Debug_ANGLE/
+Release_ANGLE/
+Debug_Shared/
+Release_Shared/
 ipch/
+**/vc2013/enc_temp_folder/**
 
 # OS-specific ignore patterns
 
