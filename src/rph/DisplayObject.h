@@ -53,7 +53,7 @@ namespace rph {
         virtual void    update( float deltaTime = 0.0f ){};
         virtual void    draw(){};
         
-        void            setPos(ci::vec3 pos){ mPos = pos; }
+        void            setPos(ci::vec3 pos) { mPos = pos; }
         ci::vec3        getPos(){ return mPos; }
         
         void            setOffset(ci::vec3 offset){ mOffset = offset; }
@@ -125,6 +125,7 @@ namespace rph {
         void		setPos(float width, float height){ mPos = ci::vec2(width, height); }
         void		setPos(ci::vec2 pos){ mPos = pos; }
         ci::vec2	getPos(){ return mPos; }
+		void		movePos(ci::vec2 deltaPos) { setPos(getPos() + deltaPos); };
         
         void        setOffset(ci::vec2 offset){ mOffset = offset; }
         ci::vec2	getOffset(){ return mOffset; }

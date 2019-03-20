@@ -35,7 +35,8 @@
  */
 
 #pragma once
-
+#include "cinder/App/App.h"
+#include "cinder/CinderMath.h"
 #include <string>
 
 namespace rph {
@@ -48,7 +49,8 @@ namespace rph {
 		virtual void draw(){};
 		virtual void die(){ mIsDead = true; }
 		virtual bool isDead(){ return mIsDead; }
-		
+		virtual void setPos(ci::vec2 pos) {};
+		virtual void movePos(ci::vec2 deltaPos) {};
 		std::string mId;
 	  protected:
 		bool mIsDead;
