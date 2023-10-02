@@ -36,7 +36,7 @@
 
 #pragma once
 
-#include "cinder/App/App.h"
+#include "cinder/app/App.h"
 #include "cinder/CinderMath.h"
 #include "cinder/Utilities.h"
 #include "cinder/Timeline.h"
