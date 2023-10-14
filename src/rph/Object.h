@@ -40,19 +40,33 @@
 #include <string>
 
 namespace rph {
+
+	class Object;
+
+	// Typedef for a shared_ptr of an Object instance
+	using ObjectRef = std::shared_ptr<Object>;
+
 	class Object {
-	  public:
-		Object():mIsDead(false){};
+	public:
+		// Static function to create and return a new instance as a shared pointer
+		static ObjectRef create() {
+			return std::make_shared<Object>();
+		}
+		// Virtual destructor to ensure proper cleanup of derived classes
 		virtual ~Object(){};
-		
 		virtual void update( float deltaTime = 0.0f){};
 		virtual void draw(){};
 		virtual void die(){ mIsDead = true; }
 		virtual bool isDead(){ return mIsDead; }
-		virtual void setPos(ci::vec2 pos) {};
-		virtual void movePos(ci::vec2 deltaPos) {};
+		//virtual void setPos(ci::vec2 pos) {};
+		//virtual void movePos(ci::vec2 deltaPos) {};
 		std::string mId;
-	  protected:
+
+		Object() :mIsDead(false) {};
 		bool mIsDead;
+	protected:
+		
+	private: 
+		
 	};
 }

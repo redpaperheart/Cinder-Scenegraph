@@ -43,9 +43,20 @@
 #include "rph/Object.h"
 
 namespace rph {
-    
-    class DisplayObject3D : public Object{
+
+    class DisplayObject2D;
+    class DisplayObject3D;
+
+    using DisplayObject2DRef = std::shared_ptr<DisplayObject2D>;
+    using DisplayObject3DRef = std::shared_ptr<DisplayObject3D>;
+
+    class DisplayObject3D : public Object {
     public:
+   
+
+        static DisplayObject3DRef create() {
+            return std::make_shared<DisplayObject3D>();
+        }
         DisplayObject3D():mPos(ci::vec3(0)),mOffset(ci::vec3()),mScale(ci::vec3(1)),mColorA(ci::ColorA::white()),mRotation(ci::vec3(0)){};
         ~DisplayObject3D(){};
         
@@ -92,9 +103,13 @@ namespace rph {
         
     };
     
-    
     class DisplayObject2D : public Object{
-      public:
+    public:
+
+        static DisplayObject2DRef create() {
+            return std::make_shared<DisplayObject2D>();
+        }
+
         DisplayObject2D():mPos(ci::vec2(0)),mOffset(ci::vec2(0)),mScale(ci::vec2(1)),mColorA(ci::ColorA::white()),mWidth(0.0f),mHeight(0.0f),mRotation(0.0f),bDebug(false),mDebugColor(ci::ColorA(0,1,0,1)){};
         ~DisplayObject2D(){};
         
@@ -111,8 +126,8 @@ namespace rph {
         };
         
         virtual void setup(){};
-        virtual void update( float deltaTime = 0.0f ){};
-        virtual void draw(){};
+        virtual void update(float deltaTime = 0.0f) override {};
+        virtual void draw() override {};
         
         ci::vec2   getRegPointVec2(ci::Rectf rect, RegistrationPoint regPoint);
         ci::vec2   getRegPointVec2(ci::vec2 size, RegistrationPoint regPoint);
@@ -125,7 +140,7 @@ namespace rph {
         void		setPos(float width, float height){ mPos = ci::vec2(width, height); }
         void		setPos(ci::vec2 pos){ mPos = pos; }
         ci::vec2	getPos(){ return mPos; }
-		void		movePos(ci::vec2 deltaPos) { setPos(getPos() + deltaPos); };
+	    void		movePos(ci::vec2 deltaPos) { setPos(getPos() + deltaPos); };
         
         void        setOffset(ci::vec2 offset){ mOffset = offset; }
         ci::vec2	getOffset(){ return mOffset; }
@@ -180,8 +195,8 @@ namespace rph {
         ci::Anim<ci::vec2>      mScale;
         ci::Anim<ci::ColorA>    mColorA;
         RegistrationPoint       mRegPoint;
-      protected:
-      private:
+        protected:
+        private:
         
     };
 }

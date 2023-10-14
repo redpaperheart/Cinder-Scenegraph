@@ -40,40 +40,78 @@
 
 namespace rph {
 
-class ObjectContainer {
-  
-public:
-    ObjectContainer(){};
-    ~ObjectContainer(){};
+    class ObjectContainer;
+
+    using ObjectContainerRef = std::shared_ptr<ObjectContainer>;
+
+    class ObjectContainer {
+    public:
+        static ObjectContainerRef create() {
+            return std::make_shared<ObjectContainer>();
+        }
+        ObjectContainer(){};
+        virtual ~ObjectContainer(){};
+
+        virtual void update(float deltaTime = 0.0f);
+        virtual void draw();
+
+        void addChild(ObjectRef obj);
+        void addChildAt(ObjectRef obj, size_t index);
     
-    virtual void update( float deltaTime = 0.0f, int beginIndex = 0, int endIndex = 0x7fffffff);
-    virtual void draw(int beginIndex = 0, int endIndex = 0x7fffffff);
+        size_t getNumChildren(){ 
+            return mChildren.size(); 
+        }
+
+    //    bool  contains(const DisplayObject &obj){};
     
-    void    addChild(Object *obj){ if(obj != NULL) mChildren.push_back(obj); }
-    void    addChild( Object *obj, int index){ if(obj != NULL) mChildren.insert( mChildren.begin()+index, obj ); };
+        ObjectRef   getChildAt(size_t index);
+        // Non-const version
+        std::vector<ObjectRef>& getChildren() {
+            return mChildren;
+        }
+        // Const version
+        const std::vector<ObjectRef>& getChildren() const {
+            return mChildren;
+        }
+
+        // Non-const versions
+        std::vector<ObjectRef>::iterator begin() {
+            return mChildren.begin();
+        }
+
+        std::vector<ObjectRef>::iterator end() {
+            return mChildren.end();
+        }
+
+        // Const versions
+        std::vector<ObjectRef>::const_iterator begin() const {
+            return mChildren.begin();
+        }
+
+        std::vector<ObjectRef>::const_iterator end() const {
+            return mChildren.end();
+        }
+
+        std::vector<ObjectRef>::iterator erase(std::vector<ObjectRef>::iterator iter) {
+            return mChildren.erase(iter);
+        }
+
+
+        void removeChildAt(int index);
+        void removeChildren(int beginIndex = 0, int endIndex = 0x7fffffff);
+        void removeChildren() {
+            mChildren.clear();
+        }
+
+    //    void setChildIndex(DisplayObject child, int index){};
+    //    void swapChildren(DisplayObject child1, DisplayObject child2){};
+        void swapChildrenAt(int index1, int index2){};
     
-    int getNumChildren(){ return mChildren.size(); }
-//    bool  contains(const DisplayObject &obj){};
-    
-    Object*   getChildAt(int index){ return mChildren[index]; }
-    std::vector<Object *>* getChildren(){ return &mChildren; }
-//    DisplayObject   getChildByName(std::string name){};
-//    int getChildIndex(DisplayObject child){};
-    
-//    vector<DisplayObject>  getObjectsUnderPoint(ci::Vec2f point){};
-    
-//    DisplayObject removeChild(DisplayObject child){};
-    Object* removeChildAt(int index);
-    void    removeChildren(int beginIndex = 0, int endIndex = 0x7fffffff);
-//    void setChildIndex(DisplayObject child, int index){};
-//    void swapChildren(DisplayObject child1, DisplayObject child2){};
-    void            swapChildrenAt(int index1, int index2){};
-    
-    std::vector<Object *> mChildren;
-  protected:
-  private:
+      protected:
+          std::vector<ObjectRef> mChildren;
+      private:
     
     
-};
+    };
     
 }

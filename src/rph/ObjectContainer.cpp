@@ -37,16 +37,59 @@
 #include "rph/ObjectContainer.h"
 namespace rph {
     
-    Object* ObjectContainer::removeChildAt(int index){
-        return *mChildren.erase( mChildren.begin()+index );
+    void ObjectContainer::addChild(ObjectRef obj) { 
+        if (obj != NULL) mChildren.push_back(obj);
+    }
+
+    void ObjectContainer::addChildAt(ObjectRef obj, size_t index) { 
+        if (obj != NULL) {
+            if (index <= mChildren.size()) {
+                mChildren.insert(mChildren.begin() + index, obj);
+            }
+            else {
+                // Alternatively, throw an exception or handle this case differently
+                std::cout << "Index out of bounds. Adding child to the end." << std::endl;
+                addChild(obj);
+            }
+        }
+    };
+
+    ObjectRef ObjectContainer::getChildAt(size_t index) {
+        if (index < mChildren.size()) {
+            return mChildren[index];
+        }
+        else {
+            // Alternatively, throw an exception or return a null shared_ptr
+            std::cout << "Index out of bounds. Returning nullptr." << std::endl;
+            return nullptr;
+        }
+    }
+
+    void ObjectContainer::removeChildAt(int index){
+        // return *mChildren.erase( mChildren.begin()+index );
+        if (index < mChildren.size()) {
+            mChildren.erase(mChildren.begin() + index);
+        }
+        else {
+            std::cout << "Index out of bounds." << std::endl;
+        }
     }
     
     void ObjectContainer::removeChildren(int beginIndex, int endIndex){
-        mChildren.erase(mChildren.begin()+beginIndex, mChildren.begin()+endIndex);
+        //mChildren.erase(mChildren.begin()+beginIndex, mChildren.begin()+endIndex);
+        // Check bounds to ensure validity
+        if (beginIndex >= mChildren.size() || endIndex >= mChildren.size() || beginIndex > endIndex) {
+            std::cerr << "Invalid start or end index for removal." << std::endl;
+            return;
+        }
+
+        // Use std::vector's erase method with iterators
+        mChildren.erase(mChildren.begin() + beginIndex, mChildren.begin() + endIndex + 1);
+
     };
     
-    void ObjectContainer::update( float deltaTime, int beginIndex, int endIndex ){
-        for( std::vector<Object *>::iterator it = mChildren.begin(); it != mChildren.end();){
+    void ObjectContainer::update( float deltaTime ){
+        for(auto it = mChildren.begin(); it != mChildren.end();){
             if( (*it)->isDead() ){
                 it = mChildren.erase(it);
             } else {
@@ -56,9 +99,9 @@ namespace rph {
         }
     }
 
-    void ObjectContainer::draw(int beginIndex, int endIndex){
-        for( std::vector<Object *>::iterator it = mChildren.begin(); it != mChildren.end(); it++){
-            (*it)->draw();
+    void ObjectContainer::draw(){
+        for(const auto& child : mChildren){
+            child->draw();
         }
     }
 

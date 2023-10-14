@@ -45,8 +45,8 @@ namespace rph {
       public:
         DisplayObjectContainer(){};
         ~DisplayObjectContainer(){};
-        virtual void update(float deltaTime = 0.0f, int beginIndex = 0, int endIndex = 0x7fffffff){ObjectContainer::update(deltaTime, beginIndex, endIndex);}
-        virtual void draw(int beginIndex = 0, int endIndex = 0x7fffffff){ObjectContainer::draw(beginIndex, endIndex);}
+        virtual void update(float deltaTime = 0.0f){ObjectContainer::update(deltaTime);}
+        virtual void draw(){ObjectContainer::draw();}
     };
     
 }
